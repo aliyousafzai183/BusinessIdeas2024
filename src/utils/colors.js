@@ -9,6 +9,7 @@ const colors = {
     textWhite: '#FFFFFF',
     width: width,
     height: height,
+    blackTransparent: 'rgba(0, 0, 0, 0.5)',
 };
 
 export default colors;
