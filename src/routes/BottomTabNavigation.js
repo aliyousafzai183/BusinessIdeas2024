@@ -69,7 +69,7 @@ const BottomTabNavigator = () => {
                     ),
                 }}
             />
-            <Tab.Screen
+            {/* <Tab.Screen
                 name={RouteName.LIKED_IDEA_SCREEN}
                 component={LikedIdeaScreen}
                 options={{
@@ -84,7 +84,7 @@ const BottomTabNavigator = () => {
                         />
                     ),
                 }}
-            />
+            /> */}
             <Tab.Screen
                 name={RouteName.MORE_SCREEN}
                 component={MoreScreen}
