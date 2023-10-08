@@ -2,23 +2,32 @@ import React, { useEffect } from 'react';
 import { View, Text, Image, StyleSheet, StatusBar, ImageBackground } from 'react-native';
 import colors from '../../../utils/colors';
 import RouteName from '../../../routes/RouteName';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SplashScreen = ({ navigation }) => {
 
     useEffect(() => {
-        setTimeout(() => {
-            navigation.replace(RouteName.WELCOME_SCREEN);
-        }, 2000);
+        const checkStatus = async () => {
+            const welcome = await AsyncStorage.getItem('welcome');
+            if (welcome === 'true') {
+                navigation.replace(RouteName.BOTTOM_TAB);
+            } else {
+                navigation.replace(RouteName.WELCOME_SCREEN);
+            }
+
+        }
+
+        checkStatus();
     }, []);
 
     return (
         // <ImageBackground source={require('../../../images/splashwalpaper.jpg')} style={styles.container} resizeMode='cover'  >
         <View style={styles.innerWrapper} >
-                <StatusBar hidden={true} />
-                <Text style={styles.topText}></Text>
-                <Image source={require('../../../images/LogoTransparent.png')} style={styles.logo} />
-                <Text style={styles.topText}>Business Ideas 2024</Text>
-            </View>
+            <StatusBar hidden={true} />
+            <Text style={styles.topText}></Text>
+            <Image source={require('../../../images/LogoTransparent.png')} style={styles.logo} />
+            <Text style={styles.topText}>Business Ideas 2024</Text>
+        </View>
         // </ImageBackground>
     );
 };
