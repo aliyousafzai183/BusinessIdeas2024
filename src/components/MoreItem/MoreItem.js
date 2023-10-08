@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, Pressable, StyleSheet } from 'react-native';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'; // Import FontAwesome6 for vector icons
 import colors from '../../utils/colors'; // Import your color styles
 
 const MoreItem = ({ title, iconName, onPress }) => {
     return (
-        <TouchableOpacity style={styles.itemContainer} onPress={() => onPress(title)}>
+        <Pressable style={styles.itemContainer} onPress={() => onPress(title)}>
             <FontAwesome6 name={iconName} color={colors.primary} size={20} style={styles.icon} />
             <Text style={styles.title}>{title}</Text>
-        </TouchableOpacity>
+        </Pressable>
     );
 };
 
