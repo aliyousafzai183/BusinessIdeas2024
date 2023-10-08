@@ -3,8 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RouteName from './RouteName';
 import {
-  SplashScreen, WelcomeScreen, NameScreen
+  SplashScreen, WelcomeScreen
 } from '../screens/index';
+
+import BottomTabNavigator from './BottomTabNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,8 +31,8 @@ const StackNavigation = () => {
         />
 
         <Stack.Screen
-          name={RouteName.NAME_SCREEN}
-          component={NameScreen}
+          name={RouteName.BOTTOM_TAB}
+          component={BottomTabNavigator}
         />
 
       </Stack.Navigator>

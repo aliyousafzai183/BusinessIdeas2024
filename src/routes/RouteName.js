@@ -6,6 +6,7 @@ const RouteName = {
     LIKED_IDEA_SCREEN: 'LIKED_IDEA_SCREEN',
     MORE_SCREEN: 'MORE_SCREEN',
     QUOTE_SCREEN: 'QUOTE_SCREEN',
+    BOTTOM_TAB: 'BOTTOM_TAB',
 }
 
 export default RouteName;

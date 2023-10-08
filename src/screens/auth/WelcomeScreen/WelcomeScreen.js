@@ -6,14 +6,14 @@ import colors from '../../../utils/colors';
 const WelcomeScreen = ({ navigation }) => {
 
     const handleContinue = () => {
-        navigation.navigate(RouteName.NAME_SCREEN);
+        navigation.navigate(RouteName.BOTTOM_TAB);
     }
 
     return (
-        <ImageBackground source={require('../../../images/welcome.jpg')} style={styles.background} resizeMode='cover'  >
-            <StatusBar backgroundColor='transparent' barStyle={'light-content'} translucent={true} />
+        // <ImageBackground source={require('../../../images/welcome.jpg')} style={styles.background} resizeMode='cover'  >
 
             <View style={styles.innerWrapper}>
+                <StatusBar backgroundColor='transparent' barStyle={'dark-content'} translucent={true} />
                 <View style={styles.textContainer}>
                     <View style={styles.innerTextContainer}>
                         <Text style={styles.welcomeText}>Welcome </Text>
@@ -29,7 +29,7 @@ const WelcomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
 
-        </ImageBackground>
+        // </ImageBackground>
     );
 };
 
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
     innerWrapper: {
         flex: 1,
-        backgroundColor: colors.blackTransparent,
+        backgroundColor: colors.background,
         justifyContent: 'space-around',
         alignItems: 'center',
         paddingTop: '10%',
@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
         fontSize: 53,
         fontWeight: 'bold',
         marginBottom: 10,
-        color: colors.primary,
+        color: colors.secondary,
     },
     welcomeText: {
         fontSize: 53,
         fontWeight: '700',
-        color: colors.textWhite,
+        color: colors.textBlack,
     },
     descriptionText: {
         fontSize: 18,
@@ -80,12 +80,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 30,
         height: 55,
-        backgroundColor: colors.primary,
+        backgroundColor: colors.secondary,
         alignSelf: 'flex-end'
     },
     otherButtonText: {
         fontSize: 17,
         fontWeight: '600',
-        color: colors.textWhite
+        color: colors.textBlack
     },
 });

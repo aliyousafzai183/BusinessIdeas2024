@@ -1,35 +1,18 @@
-import React, { useState, useCallback } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import {
-    MainHomeScreen, CartHomeScreen, NotificationHomeScreen, WalletHomeScreen, TrackingHomeScreen
+    HomeScreen, QuoteScreen, LikedIdeaScreen, MoreScreen
 } from '../screens/index';
 import RouteName from './RouteName';
-import colorss from '../utils/colorss';
+import colors from '../utils/colors';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const Badge = ({ value, focused }) => {
-    return (
-        <View style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            backgroundColor: colorss.KariYellow,
-            borderRadius: 6,
-            width: 15,
-            height: 15,
-            justifyContent: 'center',
-            alignItems: 'center'
-        }}>
-            <Text style={{ color: 'white', fontSize: 10 }}>{value}</Text>
-        </View>
-    )
-};
-
-const TabIcon = ({ focused, color, iconComponent: IconComponent, iconName, badgeValue }) => (
+const TabIcon = ({ focused, color, iconComponent: IconComponent, iconName }) => (
     <View style={[
         {
             justifyContent: 'center',
@@ -37,30 +20,26 @@ const TabIcon = ({ focused, color, iconComponent: IconComponent, iconName, badge
             height: 45,
             width: 45,
             borderRadius: 100,
+            backgroundColor: focused ? colors.secondary : colors.background, // Change background color based on focus
         },
-        focused ? { backgroundColor: colorss.KariYellow } : {}
     ]}>
         <IconComponent name={iconName} color={color} size={26} />
-        {badgeValue && <Badge value={badgeValue} color='blue' />}
     </View>
 );
 
 const BottomTabNavigator = () => {
     return (
         <Tab.Navigator
-            initialRouteName={RouteName.MAIN_HOME_SCREEN}
-            activeColor={colorss.UIColors.black}
-            inactiveColor={colorss.Neutral.fullNeutral}
-            barStyle={{ backgroundColor: colorss.UIColors.white }}
+            initialRouteName={RouteName.HOME_SCREEN}
+            activeColor={colors.textBlack}
+            inactiveColor={colors.blackTransparent}
+            barStyle={{ backgroundColor: colors.background }}
             shifting={true}
             backBehavior='firstRoute'
-            screenOptions={{
-                tabBarBadgeStyle: { backgroundColor: 'red' },
-            }}
         >
             <Tab.Screen
-                name={RouteName.MAIN_HOME_SCREEN}
-                component={MainHomeScreen}
+                name={RouteName.HOME_SCREEN}
+                component={HomeScreen}
                 options={{
                     tabBarLabel: '',
                     tabBarAccessibilityLabel: 'Kari App Home Screen',
@@ -75,80 +54,50 @@ const BottomTabNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name={RouteName.WALLET_HOME_SCREEN}
-                component={WalletHomeScreen}
+                name={RouteName.QUOTE_SCREEN}
+                component={QuoteScreen}
                 options={{
                     tabBarLabel: '',
-                    tabBarAccessibilityLabel: 'Kari App Wallet',
+                    tabBarAccessibilityLabel: 'Kari App Quote Screen',
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             focused={focused}
                             color={color}
-                            iconComponent={FontAwesome6}
-                            iconName="wallet"
+                            iconComponent={MaterialCommunityIcons}
+                            iconName="comment-quote"
                         />
                     ),
                 }}
             />
             <Tab.Screen
-                name={RouteName.TRACKING_HOME_SCREEN}
-                component={TrackingHomeScreen}
+                name={RouteName.LIKED_IDEA_SCREEN}
+                component={LikedIdeaScreen}
                 options={{
                     tabBarLabel: '',
-                    tabBarAccessibilityLabel: 'Track Orders and Deliveries',
+                    tabBarAccessibilityLabel: 'Favourite Ideas Screen',
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             focused={focused}
                             color={color}
-                            iconComponent={FontAwesome6}
-                            iconName="location-dot"
+                            iconComponent={Fontisto}
+                            iconName="favorite"
                         />
                     ),
                 }}
             />
             <Tab.Screen
-                name={RouteName.CART_HOME_SCREEN}
-                component={CartHomeScreen}
+                name={RouteName.MORE_SCREEN}
+                component={MoreScreen}
                 options={{
                     tabBarLabel: '',
-                    tabBarAccessibilityLabel: 'Kari App Cart',
+                    tabBarAccessibilityLabel: 'More Screen',
                     tabBarIcon: ({ color, focused }) => (
-                        <View style={[
-                            {
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                height: 45,
-                                width: 45,
-                                borderRadius: 100,
-                            },
-                            focused ? { backgroundColor: colorss.KariYellow } : {}
-                        ]}>
-                            <FontAwesome6 name="bag-shopping" color={color} size={26} />
-                            {!focused && <Badge value='4' />}
-                        </View>
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name={RouteName.NOTIFICATIONS_HOME_SCREEN}
-                component={NotificationHomeScreen}
-                options={{
-                    tabBarLabel: '',
-                    tabBarAccessibilityLabel: 'Kari App Notifications',
-                    tabBarIcon: ({ color, focused }) => (
-                        <View style={[
-                            {
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                height: 45,
-                                width: 45,
-                                borderRadius: 100,
-                            },
-                            focused ? { backgroundColor: colorss.KariYellow } : {}
-                        ]}>
-                            <Ionicons name="notifications" color={color} size={26} />
-                            {!focused && <Badge value='6' />}
-                        </View>
+                        <TabIcon
+                            focused={focused}
+                            color={color}
+                            iconComponent={MaterialCommunityIcons}
+                            iconName="more"
+                        />
                     ),
                 }}
             />
