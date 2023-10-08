@@ -10,6 +10,7 @@ const colors = {
     width: width,
     height: height,
     blackTransparent: 'rgba(0, 0, 0, 0.5)',
+    textInactive: 'rgba(0, 0, 0, 0.7)'
 };
 
 export default colors;
