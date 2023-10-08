@@ -8,6 +8,10 @@ const moreItems = [
       iconName: 'file-alt',
     },
     {
+      title: 'Suggest a Business Idea',
+      iconName: 'business-time',
+    },
+    {
       title: 'Suggest a Quote',
       iconName: 'quote-left',
     },

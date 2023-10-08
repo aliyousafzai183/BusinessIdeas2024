@@ -7,6 +7,7 @@ const RouteName = {
     MORE_SCREEN: 'MORE_SCREEN',
     QUOTE_SCREEN: 'QUOTE_SCREEN',
     BOTTOM_TAB: 'BOTTOM_TAB',
+    SEARCH_SCREEN: "SEARCH_SCREEN"
 }
 
 export default RouteName;

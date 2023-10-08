@@ -15,6 +15,9 @@ const MoreScreen = () => {
             case 'Terms of Service':
                 await Linking.openURL('https://www.freeprivacypolicy.com/live/16c2795f-c079-4259-87c3-0b9e95f02cfd');
                 break;
+            case 'Suggest a Business idea':
+                sendEmail('Suggest a Business idea');
+                break;
             case 'Suggest a Quote':
                 sendEmail('Suggest a Quote');
                 break;

@@ -60,13 +60,17 @@ const HomeScreen = ({ navigation }) => {
     // Filter business ideas based on the selected category index
     const filteredIdeas = selectedIndex === 0 ? BusinessIdeas : BusinessIdeas.filter(idea => idea.category === buttons[selectedIndex].category);
 
+    const handleSearch = () => {
+        navigation.navigate(RouteName.SEARCH_SCREEN);
+    }
+
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor={colors.background} barStyle={'dark-content'} />
             <Image source={require('../../images/Banner.png')} style={styles.banner} />
 
             {/* Search Button */}
-            <TouchableOpacity style={styles.searchButton}>
+            <TouchableOpacity style={styles.searchButton} onPress={handleSearch} >
                 <Feather name="search" color={colors.blackTransparent} size={23} style={styles.searchIcon} />
                 <Text style={styles.searchLabel}>Search Ideas</Text>
             </TouchableOpacity>
