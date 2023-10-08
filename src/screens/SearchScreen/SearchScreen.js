@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, StatusBar } from 'react-native';
 import colors from '../../utils/colors';
 import RouteName from '../../routes/RouteName';
 
-const LikedIdeaScreen = () => {
+const SearchScreen = () => {
 
     return (
         <View style={styles.container}>
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LikedIdeaScreen;
+export default SearchScreen;
