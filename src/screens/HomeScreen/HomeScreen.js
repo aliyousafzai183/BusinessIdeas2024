@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.background,
         paddingHorizontal: colors.width * 0.05,
-        paddingVertical: colors.width * 0.1,
+        paddingTop: colors.width * 0.1,
     },
     banner: {
         width: '100%',
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 20,
-        color: colors.textBlack,
+        color: colors.primary,
         marginTop: 20,
         marginBottom: 10,
         fontWeight: "600"
